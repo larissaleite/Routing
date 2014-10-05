@@ -29,6 +29,7 @@ mongoose.connection.once('connected', function(error){
 });
 
 app.use(express.static(__dirname + '/public')); 
+app.set('views', __dirname+'/public/views');
 
 app.use(bodyParser.urlencoded({extended:true}));
 

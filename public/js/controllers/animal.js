@@ -5,13 +5,13 @@ app.controller('AnimalCtrl', function($scope, $http, $routeParams, $location) {
   	$scope.comentarios;
     $scope.localizacao;
 
-    var regex = /localhost:8080/animal/(\d+)/g;
+    /*var regex = /localhost:8080/animal/(\d+)/g;
 
     var url = $location.absUrl();
 
     var id = regex.exec(url);
 
-    console.log(id);
+    console.log(id);*/
 
   /*	$http({url: '/api/animal/:id', method: 'GET', params : { id: id } })
       .success(function(response) {
