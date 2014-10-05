@@ -1,0 +1,296 @@
+<html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/pet-icons/500/pet09-256.png">
+
+  <title>Adote</title>
+
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+  <link rel="stylesheet" href="css/bootstrap-social.css">
+
+  <!-- Fonts -->
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/2.0.1/ng-tags-input.min.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-cookies.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.js"></script>
+  <script src="https://oss.maxcdn.com/angular.strap/2.0.0/angular-strap.min.js"></script>
+  <script src="https://oss.maxcdn.com/angular.strap/2.0.0/angular-strap.tpl.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/flow.js/2.0.0b2/flow.js"></script>
+  <script src="//cdn.jsdelivr.net/fusty-flow.js/1.0.0b3/fusty-flow.js"></script>
+  <script src="//cdn.jsdelivr.net/fusty-flow.js/1.0.0b3/fusty-flow-factory.js"></script>
+  <script src="//cdn.jsdelivr.net/anglular.flow/2.2.0/ng-flow-standalone.js"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/2.0.1/ng-tags-input.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.js"></script>
+
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=places&language=pt-BR"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers/animal.js"></script>
+
+</head>
+  <style>
+
+    body {
+      padding-top:7%;
+      /*background-color:#E1E8FF;*/
+      background-color: #abc6d9;
+
+      font-family: 'Raleway', serif;
+    }
+
+    h1, h2, h3, h4, nav {
+      font-family: 'Raleway', serif;
+    }
+
+    .animal-localization > p > img {
+      width: 10%;
+    }
+
+    .animal-profile-picture > img {
+      width: 70%;
+    }
+
+    .thumbnail {
+      background-color: #f8f8f8;
+    }
+
+    .participants {
+      padding: 7%;
+    }
+
+    .participants > .row {
+      margin-top:7%;
+    }
+
+    .participant {
+      width:80%;
+    }
+
+    .main-content {
+      margin-left: 3%;
+    }
+
+    .timeline {
+      /*height: 60%;
+      overflow: scroll; overflow-x:hidden;*/
+      margin-bottom:10%;
+
+      padding: 2%;
+      border: 1px solid #eee;
+      border-radius: 5px;
+      /* -webkit-box-shadow: -3px -3px 15px 0px rgba(0,70,127,1), 3px 3px 15px 0px rgba(0,0,0,0.25);
+      -moz-box-shadow: -3px -3px 15px 0px rgba(0,70,127,1), 3px 3px 15px 0px rgba(0,0,0,0.25);
+      box-shadow: -3px -3px 15px 0px rgba(0,0,0,0.25), 3px 3px 15px 0px rgba(0,0,0,0.25);
+      */
+      box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25), 0px -2px 2px 0px rgba(0,0,0,0.25);
+      background-color: #f8f8f8;
+    }
+
+    .border-divider {
+      border:1px solid #00467F;
+      margin-bottom: 10%;
+    }
+
+    .comentarios {
+      max-height: 70%;
+      overflow: scroll; overflow-x:hidden;
+    }
+
+    .comentario-area {
+      margin-bottom: 10%;
+    }
+
+    .comentarios-vazio {
+    	padding: 3% 0%;
+		text-align: center;
+		color: #a8a8a8;
+    }
+
+    .timeline-event > .img-circle, .comentario > .img-circle {
+      width:8%;
+    }
+
+    .evento-data {
+    	color: #afafaf;
+    }
+
+    .comentario {
+    	margin-bottom: 5%;
+    }
+
+    .comentario-data {
+    	color: #a8a8a8;
+    }
+
+    #local {
+    	width: 235px;
+    	height: 100px;
+    }
+
+    .main-header {
+      margin-bottom: 5%;
+    }
+
+    .ajudar {
+      float: right;
+    }
+
+    .atualizar {
+      float: right;
+    }
+
+  </style>
+
+    <body ng-app="adote">
+  <div class="container" ng-controller="AnimalCtrl">
+
+
+    <div class="row">
+
+      <!-- Animal pictures -->
+      <div class="col-xs-6 col-md-3">
+          
+          <div class="thumbnail">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvpzklquo6tl4Uy1aaFe1xkVPpG6YJ0caHwhGsxvyxNXIWGeAAgg" alt="...">
+            <div class="caption">
+              <h3>{{ animal.nome }}</h3>
+              <div class="animal-descricao">
+                <p> {{ animal.descricao }} </p>
+              </div>
+              <div class="animal-localization">
+                <p><img src="http://www.clipartbest.com/cliparts/dTr/ena/dTrenagpc.png" />{{ localizacao.local }}</p>
+                <div id="local"> </div>
+              </div>
+              <br>
+              <a href="#"><span class="glyphicon glyphicon-plus"></span> Mais fotos</a>
+              <a href="#" class="atualizar"><span class="glyphicon glyphicon-edit"></span> Atualizar</a>
+            </div>
+          </div>
+
+          <div class="row participants">
+            <h4>Usuários participantes</h4>
+            <div class="row">
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://files.softicons.com/download/internet-icons/user-icons-by-2shi/png/256/user5.png" class="img-circle participant">
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://b.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/female_business_user.png" class="img-circle participant">
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://www.fancyicons.com/download/?id=1878&t=png&s=256" class="img-circle participant">
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://www.selcuk.edu.tr/dosyalar/images/070/bayan%20icon.png" class="img-circle participant">
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://www.fancyicons.com/download/?id=1878&t=png&s=256" class="img-circle participant">
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://www.selcuk.edu.tr/dosyalar/images/070/bayan%20icon.png" class="img-circle participant">
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://www.fancyicons.com/download/?id=1878&t=png&s=256" class="img-circle participant">
+              </div>
+              <div class="col-xs-6 col-sm-3">
+                <img src="http://b.dryicons.com/images/icon_sets/shine_icon_set/png/256x256/female_business_user.png" class="img-circle participant">
+              </div>
+            </div>
+          </div>
+
+      </div>
+
+      <!-- Animal info and timeline -->
+      <div class="col-xs-12 col-sm-6 col-lg-8 main-content">
+        
+        <div class="main-header">
+          <div class="row">
+            <div class="col-xs-9">
+            </div>
+
+            <div class="col-xs-3">
+              <button class="btn btn-success form-control">Quero ajudar</button>
+            </div>
+
+          </div>
+        </div>
+        
+        <div class="timeline">
+
+        	<div class="timeline-event timeline-event-left" ng-repeat="evento in eventos">
+	            <img src="http://upload.wikimedia.org/wikipedia/commons/4/49/Gnome-Wikipedia-user-female.png" class="img-circle pull-left">
+	            <p>{{ evento.texto }}</p>
+	            <p class="evento-data">Em {{ evento.data }}</p>
+	            <div style="clear:both"></div>
+          	</div>
+
+          	<hr ng-show="eventos.length > 1">
+
+        </div>
+
+        <div class="border-divider"></div>
+
+        <h3>Comentários</h3>
+
+        <div class="comentarios">
+        	
+        	<div class="comentarios-vazio" ng-show="comentarios.length == 0">
+				<p> Nenhum comentário </p>
+	      	</div>
+          	
+          	<div ng-show="comentarios.length > 0" ng-repeat="comentario in comentarios">
+          		
+          		<hr>
+
+	        	<div class="comentario comentario-left">
+	        		<img src="http://upload.wikimedia.org/wikipedia/commons/4/49/Gnome-Wikipedia-user-female.png" class="img-circle pull-left">
+	            	<p>{{ comentario.texto }}</p>
+	            	<p class="comentario-data">Em {{ comentario.data }}</p>
+	            	<div style="clear:both"></div>
+	        	</div>
+
+	  		</div>
+        </div>
+
+        <div class="comentario-area">
+          <textarea cols="15" rows="3" class="form-control" ng-model="texto"></textarea>
+          <br>
+          <button class="btn btn-default" ng-click="comentar()">Comentar</button>
+        </div>
+
+      </div>
+
+    </div> <!-- /.row -->
+
+  </div> <!-- /.container -->
+
+</body>
+</html>
+

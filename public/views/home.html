@@ -1,0 +1,615 @@
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+<link rel="shortcut icon" href="https://cdn4.iconfinder.com/data/icons/pet-icons/500/pet09-256.png">
+
+	<title>Adote</title>
+
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+	<link rel="stylesheet" href="css/bootstrap-social.css">
+
+	<!-- Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Slab' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/2.0.1/ng-tags-input.min.css" />
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+	<!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.20/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-resource.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-cookies.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-route.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-animate.js"></script>
+  <script src="https://oss.maxcdn.com/angular.strap/2.0.0/angular-strap.min.js"></script>
+  <script src="https://oss.maxcdn.com/angular.strap/2.0.0/angular-strap.tpl.min.js"></script>
+
+  <script src="//cdn.jsdelivr.net/flow.js/2.0.0b2/flow.js"></script>
+  <script src="//cdn.jsdelivr.net/fusty-flow.js/1.0.0b3/fusty-flow.js"></script>
+  <script src="//cdn.jsdelivr.net/fusty-flow.js/1.0.0b3/fusty-flow-factory.js"></script>
+  <script src="//cdn.jsdelivr.net/anglular.flow/2.2.0/ng-flow-standalone.js"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/ng-tags-input/2.0.1/ng-tags-input.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular-sanitize.js"></script>
+
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true&libraries=places&language=pt-BR"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/controllers/home.js"></script>
+
+	<style type="text/css">
+
+	 body {
+      padding-top:7%;
+      /*background-color:#E1E8FF;*/
+      background-color: #abc6d9;
+
+      font-family: 'Raleway', serif;
+    }
+
+    h1, h2, h3, h4, nav {
+      font-family: 'Raleway', serif;
+    }
+
+    .navbar-default .navbar-brand {
+      color: #00467F;
+      font-family: 'Lobster', cursive;
+      font-size:25px;
+    }
+
+    .navbar-default {
+      border-bottom:3px solid #00467F;
+    }
+
+    .navbar-default .navbar-nav>li>a {
+      color: #00467F;
+    }
+
+    .search-input > .dropdown-menu {
+    	min-width: 93%;
+    }
+
+	.last-events {
+	    margin-bottom:10%;
+
+	    padding: 2%;
+	    border: 1px solid #eee;
+	    border-radius: 5px;
+      	box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.25), 0px -2px 2px 0px rgba(0,0,0,0.25);
+      	background-color: #f8f8f8;
+    }
+
+    .profile-avatar {
+    	width: 85%;
+    	margin-bottom: 10%;
+    }
+
+    .event > .img-circle {
+  		width:7%;
+	}
+
+	#profile-link {
+		display: inline;
+		vertical-align: super;
+	}
+
+	.fa-facebook-square {
+		margin-left: 5%;
+		margin-right: 5%;
+	}
+
+	.animals-display {
+		margin-bottom: 10%;
+	}
+
+	.event > .pull-right {
+		color:#00467F;
+	}
+
+	.event-text > p {
+		color: #afafaf;
+	}
+
+	.animal-row {
+		margin-bottom: 1%;
+	}
+
+	.animal-icon {
+		width: 65%;
+	}
+
+	.caption > a {
+		margin: 10%;
+	}
+
+	.badge {
+		background-color: red;
+	}
+
+	</style>
+
+	<body ng-app="adote">
+		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<div class="container">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="/">Adote</a>
+				</div>
+
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" ng-controller="MenuCtrl">
+
+
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="/">Home</a></li>
+						<li><a href="/#/cadastro">Encontrei um bichinho</a></li>
+						<li><a href="/#/busca">Busca detalhada</a></li>
+						<li class="dropdown">
+							<a href="" class="dropdown-toggle" data-toggle="dropdown">Nome do usuário <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<li><a href="#">Login</a></li>
+								<li><a href="/logout">Logout</a></li>
+							</ul>
+						</li>
+					</ul>
+
+			      <form class="navbar-form">
+			        <div class="form-group" style="display:inline;">
+			          <div class="input-group search-input">
+			            <span class="input-group-addon"><span class="glyphicon glyphicon-search"></span></span>
+							<input type="text" class="form-control" ng-model="selectedAnimal" ng-options="animal.nome for animal in animals" placeholder="Encontre bichinhos" bs-typeahead>
+			          </div>
+			        </div>
+			      </form>
+
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+
+
+
+	<div class="container" ng-controller="HomeCtrl">
+
+
+		<div class="row">
+
+	<div class="col-xs-6 col-md-3">
+		<img src="http://kaynou.files.wordpress.com/2011/05/grammargirlavatar.jpg" class="img-circle profile-avatar">
+		<br>
+		<a href=""><i class="fa fa-facebook-square fa-2x"></i><h4 id="profile-link">Maria Joaquina</h4></a>
+	</div>
+
+	<div class="col-xs-12 col-sm-6 col-lg-8">
+		<div class="last-events">
+
+			<div class="event">
+				<div class="col-md-10">
+				</div>
+				<div class="pull-right">
+					<button class="btn btn-default btn-xs">Limpar</button>
+				</div>
+				<div style="clear:both"></div>
+			</div>
+
+			<hr>
+			
+			<div class="event">
+	            <img src="http://4.bp.blogspot.com/_kgJ7oLMnD4c/TCmb-s22B1I/AAAAAAAAAZ4/7QqnGFSRKck/s1600/pu.png" class="img-circle pull-left">
+	            <div class="col-md-10 event-text">
+	            	<a href="#">Texto falando sobre o evento realizado pelo o usuário</a>
+	            	<p>Em 03/09/2014 às 15:25h</p>
+	            </div>
+
+	            <div class="pull-right"><i class="fa fa-times"></i></div>
+	            <div style="clear:both"></div>
+          	</div>
+
+          	<hr>
+
+          	<div class="event">
+	            <img src="http://img2.wikia.nocookie.net/__cb20121101165134/farmville/images/d/d6/Police_Puppy-icon.png" class="img-circle pull-left">
+	            <div class="col-md-10 event-text">
+	            	<a href="#">Texto falando sobre o evento realizado pelo o usuário</a>
+	            	<p>Em 03/09/2014 às 15:25h</p>
+	            </div>
+	            <div class="pull-right"><i class="fa fa-times"></i></div>
+	            <div style="clear:both"></div>
+          	</div>
+
+          	<hr>
+
+          	<div class="event">
+	            <img src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" class="img-circle pull-left">
+	            <div class="col-md-10 event-text">
+	            	<a href="#">Texto falando sobre o evento realizado pelo o usuário</a>
+	            	<p>Em 03/09/2014 às 15:25h</p>
+	            </div>
+	            <div class="pull-right"><i class="fa fa-times"></i></div>
+	            <div style="clear:both"></div>
+          	</div>
+
+          	<hr>
+
+          	<div class="event">
+	            <img src="http://www.fontsaddict.com/images/icons/png/8.png" class="img-circle pull-left">
+	            <div class="col-md-10 event-text">
+	            	<a href="#">Texto falando sobre o evento realizado pelo o usuário</a>
+	            	<p>Em 03/09/2014 às 15:25h</p>
+	            </div>
+	            <div class="pull-right"><i class="fa fa-times"></i></div>
+	            <div style="clear:both"></div>
+          	</div>
+
+          	<hr>
+
+          	<div class="event">
+	            <img src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" class="img-circle pull-left">
+	            <div class="col-md-10 event-text">
+	            	<a href="#">Texto falando sobre o evento realizado pelo o usuário</a>
+	            	<p>Em 03/09/2014 às 15:25h</p>
+	            </div>
+	            <div class="pull-right"><i class="fa fa-times"></i></div>
+	            <div style="clear:both"></div>
+          	</div>
+
+          	<hr>
+
+          	<div class="event">
+	            <img src="https://cdn1.iconfinder.com/data/icons/SUPERVISTA/animals/png/400/swallow_bird.png" class="img-circle pull-left">
+	            <div class="col-md-10 event-text">
+	            	<a href="#">Texto falando sobre o evento realizado pelo o usuário</a>
+	            	<p>Em 03/09/2014 às 15:25h</p>
+	            </div>
+	            <div class="pull-right"><i class="fa fa-times"></i></div>
+	            <div style="clear:both"></div>
+          	</div>
+
+		</div>
+
+		<div class="animals-display">
+			<div class="panel-group" id="accordion">
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseOne">
+			          Animais que acompanho
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseOne" class="panel-collapse collapse in">
+			      <div class="panel-body">
+			        
+			        <div class="row animal-row">
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+			        </div>
+
+			        <div class="row animal-row">
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://img2.wikia.nocookie.net/__cb20121101165134/farmville/images/d/d6/Police_Puppy-icon.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+			        </div>
+
+			        <div class="row">
+
+			        	<div class="col-md-3">
+							<ul class="pager">
+							  <li class="previous"><a href="#">&larr; Anterior</a></li>
+							</ul>
+			        	</div>
+			        	
+			        	<div class="col-md-6">
+				        	<!--<ul class="pagination">
+							  <li><a href="#">&laquo;</a></li>
+							  <li><a href="#">1</a></li>
+							  <li><a href="#">2</a></li>
+							  <li><a href="#">3</a></li>
+							  <li><a href="#">4</a></li>
+							  <li><a href="#">5</a></li>
+							  <li><a href="#">&raquo;</a></li>
+							</ul>-->
+						</div>
+
+						<div class="col-md-3">
+							<ul class="pager">
+							  <li class="next"><a href="#">Próximo &rarr;</a></li>
+							</ul>
+						</div>
+
+			        </div>
+
+			      </div>
+			    </div>
+			  </div>
+			  <div class="panel panel-default">
+			    <div class="panel-heading">
+			      <h4 class="panel-title">
+			        <a data-toggle="collapse" data-parent="#accordion" data-target="#collapseTwo">
+			          Animais que cadastrei
+			        </a>
+			      </h4>
+			    </div>
+			    <div id="collapseTwo" class="panel-collapse collapse">
+			      <div class="panel-body">
+			        
+			      	<div class="row animal-row">
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://iconbug.com/data/af/256/11ec71f4b5adce762099c3c0e7d5489b.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+			        </div>
+
+			        <div class="row animal-row">
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://img2.wikia.nocookie.net/__cb20121101165134/farmville/images/d/d6/Police_Puppy-icon.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+
+			        	<div class="col-xs-2">
+			        		<div class="thumbnail">
+			        			<span class="badge pull-right">2</span>
+			        			<img class="animal-icon" src="http://www.jouer-a-farmville.fr/images/pets/golden_retriever_cream.png" />
+			        			<div class="caption">
+			        				<a href="#">Pluto</a>
+			        			</div>
+			        		</div>
+			        	</div>
+			        </div>
+
+			        <div class="row">
+
+			        	<div class="col-md-3">
+							<ul class="pager">
+							  <li class="previous"><a href="#">&larr; Anterior</a></li>
+							</ul>
+			        	</div>
+			        	
+			        	<div class="col-md-6">
+						</div>
+
+						<div class="col-md-3">
+							<ul class="pager">
+							  <li class="next"><a href="#">Próximo &rarr;</a></li>
+							</ul>
+						</div>
+
+			        </div>
+			        
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
+		</div>
+
+	</div>
+
+</div> <!-- /.row -->
+
+	</div> <!-- /.container -->
+
+</body>
+</html>
